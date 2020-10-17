@@ -4,8 +4,8 @@ import knex from '../database/connections'
 
 class PointsController {
     async create(request: Request, response: Response) {
-        try {
 
+        try {
             //pega todas as variaves do corpo da requisicao 
             const {
                 name,
@@ -31,10 +31,10 @@ class PointsController {
                 latitude,
                 uf,
                 city,
-            }
+            };
 
             //pega todos os IDS da insercao feita no BD com todas as variaves de POINTS
-            const insertedIds = await trx('points').insert(point)
+            const insertedIds = await trx('points').insert(point);
 
             //cria uma variavel que armavena o id da Gravacao
             const point_id = insertedIds[0];
@@ -43,8 +43,8 @@ class PointsController {
                 return {
                     wash_id,
                     point_id,
-                }
-            })
+                };
+            });
 
             await trx('points_wash').insert(pointWash)
 
@@ -53,15 +53,15 @@ class PointsController {
             return response.json({
                 id: point_id,
                 ...point,
-            })
+            });
 
         } catch (error) {
             response.json({
                 error: true,
                 message: error.message
-            })
-        }
-    }
-}
+            });
+        };
+    };
+};
 
 export default PointsController;
