@@ -12,10 +12,11 @@ export async function up(knex: Knex) {
         table.decimal('latitude').notNullable();
         table.string('uf', 2).notNullable();
         table.string('city').notNullable();
+        
     });
 };
 
 export async function down(knex: Knex) {
     return await knex.schema.dropTable('points');
-}
+};
  
