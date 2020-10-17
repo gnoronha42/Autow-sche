@@ -46,7 +46,6 @@ class PointsController {
                 }
             })
 
-
             await trx('points_wash').insert(pointWash)
 
             await trx.commit();

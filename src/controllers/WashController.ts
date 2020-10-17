@@ -13,7 +13,7 @@ class WashController {
             return {
                 id: wash.id,
                 title: wash.title,
-                image_url: `http://localhost:3333/uploads/${wash.image}`
+                image_url: `http://localhost:3333/assets/${wash.image}`
             }
         })
         return response.json(serializedWash);
